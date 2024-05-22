@@ -19,15 +19,17 @@ module.exports = {
             CREATED: "Created successfully.",
             CONFLICT: "conflicting",
             PRECONDITION_FAILED: "Precondition failed",
-            USERS: {
-                CREATED_SUCCESS: 'User Created Successfully.',
-                UPDATED_SUCCESS: 'User updated Successfully.',
-                UPDATE_FAILURE: 'User could not be updated.',
-                DELETED_SUCCESS: 'User updated Successfully.',
-                DELETE_FAILURE: 'User could not be updated.',
-                LOGIN_SUCCESS: 'User logged in Successfully.',
-                NOT_FOUND: 'User not found.',
-                INCORRECT_PASSWORD: 'Incorrect password'
+            FACILITIES: {
+                CREATED_SUCCESS: 'Facility Created Successfully.',
+                UPDATED_SUCCESS: 'Facility updated Successfully.',
+                UPDATE_FAILURE: 'Facility could not be updated.',
+                DELETED_SUCCESS: 'Facility updated Successfully.',
+                DELETE_FAILURE: 'Facility could not be deleted.',
+                PARENT_FACILITY_NOT_FOUND: 'Parent Facility Code not found.',
+                LIST_PARENTS_SUCCESS: 'Fecthed parent facilities successfully.',
+                LIST_FACILITIES_SUCCESS: 'Fecthed facilities successfully.',
+                LIST_SERVICE_SUCCESS: 'Fectched the Facilities-Services successfully.',
+                CREATE_REQUEST_SUCCESS: 'Created Facility Request successfully.'
             }
         }
     }

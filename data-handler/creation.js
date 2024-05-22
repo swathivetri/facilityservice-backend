@@ -4,7 +4,7 @@ const Facility_services = require("./facility_services.model");
 const Categories = require("./category.model");
 const Sequelize = require("sequelize");
 module.exports = (connection)=> {
-  connection.sync({ force: false, alter: true })
+  connection.sync({ force: false, alter: false })
   connection.FACILITY = Facilities(connection, Sequelize.DataTypes);
   connection.FACILITY_REQUEST = Facility_request(connection, Sequelize.DataTypes);
   connection.FACILITY_SERVICE = Facility_services(connection, Sequelize.DataTypes);

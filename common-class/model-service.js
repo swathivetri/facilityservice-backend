@@ -32,7 +32,7 @@ class modelService {
   }
   async findOneByCond(cond) {
     try{
-      const data = this.model.findOneByCond({where: cond, raw: true});
+      const data = this.model.findOne({where: cond, raw: true});
       return data;
     }
     catch(error) { throw error;}

@@ -21,6 +21,10 @@ module.exports = (Sequelize, DataTypes)=> {
                 "key": "code"
             }
         },
+        association_service_code: {
+            type: DataTypes.STRING(30),
+            allowNull: false
+          },
         user_type: {
             type: DataTypes.ENUM("customer","business"),
             allowNull: false

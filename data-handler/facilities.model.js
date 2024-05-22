@@ -15,9 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(40),
         allowNull: true
       },
-      is_sub_facility: {
+      contains_facility_services: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: false
       },
       user_type: {
         type: DataTypes.ENUM("customer","business"),

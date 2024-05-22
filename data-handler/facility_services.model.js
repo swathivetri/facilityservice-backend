@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(40),
         allowNull: false
       },
+      association_service_code: {
+        type: DataTypes.STRING(30),
+        allowNull: false
+      },
       category_code: {
         type: DataTypes.STRING(40),
         references: {
