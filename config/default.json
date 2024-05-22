@@ -1,11 +1,11 @@
 {
   "database": {
     "username": "postgres",
-    "password": "sowmiya",
+    "password": "codiis@123",
     "database": "facilityRequest",
     "host": "localhost",
-    "port": 5432,
+    "port": 5434,
     "dialect": "postgres",
-    "schema": "alert"
+    "schema": "alerts"
   }
 }

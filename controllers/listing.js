@@ -73,7 +73,7 @@ class ListingController {
                 })
             }
             const data = await this.FacilityServicesService.findAll({
-                parent_facility_code: facilityCode,
+                parent_facility_code: parentFacilityCode,
                 user_type: requestType || "customer",
                 association_service_code: request.query.api_key  || defaultOneappKey
             });

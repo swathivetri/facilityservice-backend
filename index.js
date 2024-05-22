@@ -3,7 +3,8 @@ const port = process.env.NODE_SERVER_POST || 8050;
 const host = process.env.NODE_SERVER_HOST || 'localhost';
 const createModels = require('./data-handler/creation');
 const config = require("config");
-
+const cors = require("cors");
+const logger = require('morgan');
 const ListFacility = require("./controllers/listing");
 const RegisterFacilityQuery = require("./controllers/request-registration");
 const express= require("express");
@@ -18,6 +19,22 @@ const modelService= require("./common-class/model-service");
 const server =  new Server();
 
 server.startTheServer(port, host);
+server.makeStatic("/src", "public/uploads")
+server.app.use(cors());
+server.app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+server.app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+server.app.get("/", (req, res) => {
+    res.json({ message: "Welcome to ALERT api service." });
+});
+server.app.use(logger('combined'));
+
+
 server.connectData(config.database);
 createModels(server.DATABASE.connection);
 
@@ -25,7 +42,7 @@ const Lister = new ListFacility (
     new modelService(server.DATABASE.connection.FACILITY),
     new modelService(server.DATABASE.connection.FACILITY_SERVICE)
 );
-const Register = new RegisterFacilityQuery (
+const Register = new RegisterFacilityQuery(
     new modelService(server.DATABASE.connection.FACILITY_REQUEST)
 );
 

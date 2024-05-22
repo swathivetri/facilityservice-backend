@@ -6,15 +6,17 @@ class Server {
   constructor() {
       this.app = express();    
       this.app.use(express.json({ limit: '50mb' }));
-      this.http = http.Server(this.app);
+      //this.http = http.Server(this.app);
   }
   
   startTheServer(port, host) {
-      this.http.listen(port, host, () => {
+      this.app.listen(port, host, () => {
         console.log(`Listening on http://${host}:${port}`);
       });
   }
-  
+  makeStatic(url, folder ){
+    this.app.use(url, express.static(folder));
+  }
   connectData(config) {
       this.DATABASE = new DataHandler(config);
       this.DATABASE.authenticate().then(x => {            
